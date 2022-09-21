@@ -16,6 +16,9 @@ import {
 import { DateTime } from 'luxon';
 import moment from 'moment';
 
+const toggle = () => {
+  //TODO: this function should flip the polarity of isToggleOn 
+}
 
 const displayDate = (date) => {
   if (moment.isMoment(date)) {
@@ -24,17 +27,17 @@ const displayDate = (date) => {
   return date;
 };
 
-const dropDirection = ({ isToggleOn, toggle, id, renderDropdown }) => {
+const dropDirection = ({ isToggleOn, id, renderDropdown }) => {
 
-  if (!isToggleOn) {
-    const element = document.getElementById(id);
-    const rect = element.getBoundingClientRect();
-    const top = rect.top;
-    const bottom = window.innerHeight - top;
-    top > bottom
-      ? renderDropdown('calendar-dropUp')
-      : renderDropdown('calendar-dropDown');
-  }
+  // if (!isToggleOn) {
+  //   const element = document.getElementById(id);
+  //   const rect = element.getBoundingClientRect();
+  //   const top = rect.top;
+  //   const bottom = window.innerHeight - top;
+  //   top > bottom
+  //     ? renderDropdown('calendar-dropUp')
+  //     : renderDropdown('calendar-dropDown');
+  // }
   //toggle();
 };
 
@@ -116,7 +119,7 @@ export const DatePickerComponent = (props: DatePickerType) => {
           placeholder={placeholder}
           className="dateInput"
           disabled={disabled}
-          value={displayDate(displayValue)}
+          value={displayDate(displayValue)} // Accepts input from the calendar ui 
           onBlur={isToggleOn ? null : setDateValue}
           onChange={isToggleOn ? toggle : setValidDate}
         />

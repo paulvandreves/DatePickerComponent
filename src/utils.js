@@ -44,7 +44,7 @@ export const dateInputMask = (userEntry) => {
     cleanDate = cleanDate.slice(0, -1); // remove the last / There should never be more that two slashes in a date
   }
   if (!userEntry.match(/[a-z]/i)) {
-    // Only add slashes if the user isnt typing in alaphabet characters.
+    // Only add slashes if the user isn't typing in alphabet characters.
     if (len === 3 && !userEntry.includes('/')) {
       // Lets the user type the slash or adds it for them
       cleanDate = userEntry.slice(0, 2) + '/' + userEntry.slice(2);
